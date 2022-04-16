@@ -1,0 +1,8 @@
+.work-years {
+    display: flex;
+    justify-content: space-between;
+}
+
+.generated-pos {
+    font-size: 0.8rem;
+}

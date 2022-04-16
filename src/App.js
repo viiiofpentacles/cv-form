@@ -1,13 +1,17 @@
 import './styles/App.css';
+import './styles/generatedform.css';
 import React, { Component } from "react";
 import GeneralInfo from "./components/GeneralInfo";
+import Education from "./components/Education";
+import Work from "./components/Work";
 
 class App extends Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleOnSubmit = this.handleOnSubmit.bind(this);
+    this.handleOnSubmit = this.onSubmitTask.bind(this);
+    this.editButtonTask = this.editButtonTask.bind(this);
 
     this.state = {
         name: '',
@@ -24,7 +28,7 @@ class App extends Component {
     }
   }
 
-  handleOnSubmit(e) {
+  onSubmitTask(e) {
     e.preventDefault();
     const formContainer = document.querySelector('.form');
     formContainer.hidden = true;
@@ -33,6 +37,16 @@ class App extends Component {
     const generatedForm = document.querySelector('.generated-form');
     generatedForm.hidden = false;
   }
+
+  editButtonTask() {
+    const formContainer = document.querySelector('.form');
+    formContainer.hidden = false;
+    const editButton = document.querySelector('.edit-button');
+    editButton.hidden = true;
+    const generatedForm = document.querySelector('.generated-form');
+    generatedForm.hidden = true;
+  }
+
 
   handleChange(e) {
     this.setState({
@@ -43,16 +57,16 @@ class App extends Component {
   render(){
   return (
     <div className='form-container'>
-      <form className= 'form' onSubmit={this.handleOnSubmit}>
+      <form className= 'form' onSubmit={this.onSubmitTask}>
       <div className="info-section">
                 <h3>General Information</h3>
                 <label>
                 Name
-                <input name = 'name' type = 'text' value = {this.state.name} onChange = {this.handleChange} />
+                <input name = 'name' type = 'text' value = {this.state.name} onChange = {this.handleChange} required/>
                 </label>
                 <label>
                 Email
-                <input name = 'email' type = 'email' value = {this.state.email} onChange = {this.handleChange} />
+                <input name = 'email' type = 'email' value = {this.state.email} onChange = {this.handleChange} required/>
                 </label>
                 <label>
                 Phone
@@ -63,7 +77,7 @@ class App extends Component {
       <h3>Education</h3>
                 <label>
                 Name of School
-                <input name = 'school' type = 'text' value = {this.state.school} onChange = {this.handleChange} />
+                <input name = 'school' type = 'text' value = {this.state.school} onChange = {this.handleChange} required/>
                 </label>
                 <label>
                 Field of Study
@@ -71,37 +85,39 @@ class App extends Component {
                 </label>
                 <label>
                 Year of Graduation
-                <input name = 'gradYear' type= 'tel' value = {this.state.gradYear} onChange = {this.handleChange} />
+                <input name = 'gradYear' type= 'tel' value = {this.state.gradYear} onChange = {this.handleChange} required/>
                 </label>
       </div>
       <div className='work-section'>
       <h3>Work Experience</h3>
                 <label>
                 Name of Company
-                <input name = 'company' type = 'text' value = {this.state.school} onChange = {this.handleChange} />
+                <input name = 'company' type = 'text' value = {this.state.company} onChange = {this.handleChange} required/>
                 </label>
                 <label>
                 Position
-                <input name = 'studyField' type = 'text' value = {this.state.position} onChange = {this.handleChange} />
+                <input name = 'position' type = 'text' value = {this.state.position} onChange = {this.handleChange} required/>
                 </label>
                 <label>
                 Job Scope
-                <textarea name = 'jobScope' value = {this.state.jobScope} onChange = {this.handleChange} />
+                <textarea name = 'jobScope' value = {this.state.jobScope} onChange = {this.handleChange} required/>
                 </label>
                 <label>
                 Year you started working here
-                <input name = 'gradYear' type= 'tel' value = {this.state.yearStart} onChange = {this.handleChange} />
+                <input name = 'yearStart' type= 'tel' value = {this.state.yearStart} onChange = {this.handleChange} required/>
                 </label>
                 <label>
                 Year you stopped working here
-                <input name = 'gradYear' type= 'tel' value = {this.state.yearEnd} onChange = {this.handleChange} />
+                <input name = 'yearEnd' type= 'tel' value = {this.state.yearEnd} onChange = {this.handleChange} />
                 </label>
       </div>
         <button className='submit-button'>Submit</button>
       </form>
-      <button className='edit-button' hidden = {true}>Edit</button>
+      <button className='edit-button' hidden = {true}  onClick={this.editButtonTask}>Edit</button>
       <div className='generated-form' hidden = {true}>
       <GeneralInfo info = {this.state} />
+      <Education info = {this.state} />
+      <Work info = {this.state} />
       </div>
     </div>
   );
