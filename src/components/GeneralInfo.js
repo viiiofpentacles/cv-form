@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 
-class GeneralInfo extends Component {
-    constructor(props) {
-        super(props)
+const GeneralInfo = (props) => {
+    const { info } = props;
 
-        this.state = { props }
-    }
+        return (
+           <div className="generated-info-section" >
+               <div className="generated-name">{info.name}</div>
+           </div>
+        );
+
 }
 
 export default GeneralInfo;
