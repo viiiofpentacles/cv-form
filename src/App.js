@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import GeneralInfo from "./components/GeneralInfo";
 import Education from "./components/Education";
 import Work from "./components/Work";
+import Workexp from "./components/Workexp";
 
 class App extends Component {
   constructor() {
@@ -22,10 +23,20 @@ class App extends Component {
         gradYear: '',
         company: '',
         position: '',
-        jobScope: '',
+        jobScope1: '',
+        jobScope2: '',
+        jobScope3: '',
         yearStart: '',
         yearEnd: '',
-    }
+        company2Hidden: true,
+        company2: '',
+        position2: '',
+        jobScope12: '',
+        jobScope22: '',
+        jobScope32: '',
+        yearStart2: '',
+        yearEnd2: ''
+        }
   }
 
   onSubmitTask(e) {
@@ -90,28 +101,9 @@ class App extends Component {
       </div>
       <div className='work-section'>
       <h3>Work Experience</h3>
-                <label>
-                Name of Company
-                <input name = 'company' type = 'text' value = {this.state.company} onChange = {this.handleChange} required/>
-                </label>
-                <label>
-                Position
-                <input name = 'position' type = 'text' value = {this.state.position} onChange = {this.handleChange} required/>
-                </label>
-                <label>
-                Job Scope
-                <textarea name = 'jobScope' value = {this.state.jobScope} onChange = {this.handleChange} required/>
-                </label>
-                <label>
-                Year you started working here
-                <input name = 'yearStart' type= 'tel' value = {this.state.yearStart} onChange = {this.handleChange} required/>
-                </label>
-                <label>
-                Year you stopped working here
-                <input name = 'yearEnd' type= 'tel' value = {this.state.yearEnd} onChange = {this.handleChange} />
-                </label>
+      <Workexp info= {this.state} handleChange = {this.handleChange} />
       </div>
-        <button className='submit-button'>Submit</button>
+      <button className='submit-button'>Submit</button>
       </form>
       <button className='edit-button' hidden = {true}  onClick={this.editButtonTask}>Edit</button>
       <div className='generated-form' hidden = {true}>
@@ -123,5 +115,6 @@ class App extends Component {
   );
   }
 }
+
 
 export default App;

@@ -1,3 +1,48 @@
 .generated-form {
     width: 60%;
+    background-color: rgb(255, 255, 255);
+    margin: 2rem;
+    padding: 3rem;
+}
+
+.generated-form h3 {
+    color: black;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 550;
+}
+
+.school-year,
+.work-years {
+    display: flex;
+    justify-content: space-between;
+}
+
+.generated-field,
+.generated-pos {
+    font-size: 0.8rem;
+}
+
+.generated-edn-section {
+    border-bottom: 1.5px solid rgb(143, 134, 132);
+    padding: 0.8rem;
+}
+
+.generated-work-section {
+    padding: 0.8rem;
+}
+
+.generated-school,
+.generated-company {
+    font-size: 1.2rem;
+}
+
+li {
+    font-size: 0.9rem;
+}
+
+.company1-details,
+.comapny2-details {
+    padding-bottom: 1rem;
 }

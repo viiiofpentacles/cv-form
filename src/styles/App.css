@@ -72,9 +72,21 @@ textarea:focus {
   flex-direction: column;
 }
 
-.edit-button,
 .submit-button {
   margin-left: 1rem;
   padding: 0.5rem;
   cursor: pointer;
 }
+
+.edit-button,
+.add-more {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.add-more {
+  display: block;
+  margin-bottom: 1rem;
+}
+

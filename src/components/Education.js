@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/education.css";
 
 const Education = (props) => {
     const { info } = props;
