@@ -28,7 +28,6 @@ class App extends Component {
         jobScope3: '',
         yearStart: '',
         yearEnd: '',
-        company2Hidden: true,
         company2: '',
         position2: '',
         jobScope12: '',

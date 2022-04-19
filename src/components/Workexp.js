@@ -17,7 +17,6 @@ class Workexp extends Component {
         }
     }
 
-
 render() {
     return(
         <div>
