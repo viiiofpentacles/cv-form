@@ -67,6 +67,7 @@ class App extends Component {
   render(){
   return (
     <div className='form-container'>
+      <h1 className='app-title'>CV Generator</h1>
       <form className= 'form' onSubmit={this.onSubmitTask}>
       <div className="info-section">
                 <h3>General Information</h3>

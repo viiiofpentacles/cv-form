@@ -3,12 +3,18 @@
   margin: 0;
 }
 
+.app-title {
+  margin: 1.5rem;
+  color: rgb(129, 82, 120);
+}
+
 .form {
   padding: 1.5rem;
   margin: 1rem;
+  margin-bottom: 3rem;
   height: 90%;
   width: 50%;
-  background-color: rgb(209, 197, 208);
+  background-color: rgb(228, 226, 228);
   color: rgb(92, 91, 91);
   font-weight: 600;
   clip-path: polygon(
@@ -44,8 +50,11 @@ textarea {
   align-items: center;
 }
 
-h3 {
+form h3 {
   color: rgb(129, 82, 120);
+  font-size: 1.5rem;
+  border-bottom: 1px solid grey;
+  margin-bottom: 1rem;
 }
 
 input,

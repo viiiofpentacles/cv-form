@@ -21,7 +21,7 @@ const Work = (props) => {
                 {info.company2 !== '' &&
                 <div className="company2-details">
                <div className="work-years">
-               <div className="generated-company2">{info.company2}</div>
+               <div className="generated-company">{info.company2}</div>
                <div>{info.yearStart2} - {info.yearEnd2}</div>
                </div>
                <div className="generated-pos">{info.position2}</div>
