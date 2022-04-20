@@ -1,20 +1,14 @@
 import './styles/App.css';
 import './styles/generatedform.css';
-import React, { Component } from "react";
+import React, { useState } from "react";
 import GeneralInfo from "./components/GeneralInfo";
 import Education from "./components/Education";
 import Work from "./components/Work";
 import Workexp from "./components/Workexp";
 
-class App extends Component {
-  constructor() {
-    super();
+function App () {
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleOnSubmit = this.onSubmitTask.bind(this);
-    this.editButtonTask = this.editButtonTask.bind(this);
-
-    this.state = {
+    const [fields, setFields] = useState({
         name: '',
         email: '',
         phone: '',
@@ -35,10 +29,10 @@ class App extends Component {
         jobScope32: '',
         yearStart2: '',
         yearEnd2: ''
-        }
-  }
+        })
+  
 
-  onSubmitTask(e) {
+  function onSubmitTask(e) {
     e.preventDefault();
     const formContainer = document.querySelector('.form');
     formContainer.hidden = true;
@@ -48,7 +42,7 @@ class App extends Component {
     generatedForm.hidden = false;
   }
 
-  editButtonTask() {
+  function editButtonTask() {
     const formContainer = document.querySelector('.form');
     formContainer.hidden = false;
     const editButton = document.querySelector('.edit-button');
@@ -57,64 +51,60 @@ class App extends Component {
     generatedForm.hidden = true;
   }
 
-
-  handleChange(e) {
-    this.setState({
+  function handleChange(e) {
+    setFields({
       [e.target.name]: e.target.value
     })
   }
 
-  render(){
   return (
     <div className='form-container'>
       <h1 className='app-title'>CV Generator</h1>
-      <form className= 'form' onSubmit={this.onSubmitTask}>
+      <form className= 'form' onSubmit={onSubmitTask}>
       <div className="info-section">
                 <h3>General Information</h3>
                 <label>
                 Name
-                <input name = 'name' type = 'text' value = {this.state.name} onChange = {this.handleChange} required/>
+                <input name = 'name' type = 'text' value = {fields.name} onChange = {handleChange} required/>
                 </label>
                 <label>
                 Email
-                <input name = 'email' type = 'email' value = {this.state.email} onChange = {this.handleChange} required/>
+                <input name = 'email' type = 'email' value = {fields.email} onChange = {handleChange} required/>
                 </label>
                 <label>
                 Phone
-                <input name = 'phone' type= 'tel' value = {this.state.phone} onChange = {this.handleChange} />
+                <input name = 'phone' type= 'tel' value = {fields.phone} onChange = {handleChange} />
                 </label>
             </div>
       <div className='education-section'>
       <h3>Education</h3>
                 <label>
                 Name of School
-                <input name = 'school' type = 'text' value = {this.state.school} onChange = {this.handleChange} required/>
+                <input name = 'school' type = 'text' value = {fields.school} onChange = {handleChange} required/>
                 </label>
                 <label>
                 Field of Study
-                <input name = 'studyField' type = 'text' value = {this.state.studyField} onChange = {this.handleChange} />
+                <input name = 'studyField' type = 'text' value = {fields.studyField} onChange = {handleChange} />
                 </label>
                 <label>
                 Year of Graduation
-                <input name = 'gradYear' type= 'tel' value = {this.state.gradYear} onChange = {this.handleChange} required/>
+                <input name = 'gradYear' type= 'tel' value = {fields.gradYear} onChange = {handleChange} required/>
                 </label>
       </div>
       <div className='work-section'>
       <h3>Work Experience</h3>
-      <Workexp info= {this.state} handleChange = {this.handleChange} />
+      <Workexp info= {fields} handleChange = {handleChange} />
       </div>
       <button className='submit-button'>Submit</button>
       </form>
-      <button className='edit-button' hidden = {true}  onClick={this.editButtonTask}>Edit</button>
+      <button className='edit-button' hidden = {true}  onClick={editButtonTask}>Edit</button>
       <div className='generated-form' hidden = {true}>
-      <GeneralInfo info = {this.state} />
-      <Education info = {this.state} />
-      <Work info = {this.state} />
+      <GeneralInfo info = {fields} />
+      <Education info = {fields} />
+      <Work info = {fields} />
       </div>
     </div>
   );
-  }
 }
-
 
 export default App;
