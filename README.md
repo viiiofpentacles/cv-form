@@ -2,7 +2,7 @@
 
 This is a simple CV application form bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
 
-A preview can be viewed ([here](https://viiiofpentacles.github.io/cv-form/).  
+A preview can be viewed [here](https://viiiofpentacles.github.io/cv-form/).  
 
 ## Available Scripts
 
