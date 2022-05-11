@@ -52,9 +52,11 @@ function App () {
   }
 
   function handleChange(e) {
-    setFields({
+    setFields(fields => ({
+      ...fields,
       [e.target.name]: e.target.value
     })
+    );
   }
 
   return (
